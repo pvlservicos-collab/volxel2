@@ -484,7 +484,7 @@ button {
 
 .logos-tape__track {
   display: flex;
-  gap: 16px;
+  gap: 46px;
   width: max-content;
 }
 
@@ -495,9 +495,9 @@ button {
   flex-shrink: 0;
   width: 110px;
   height: 110px;
-  border-radius: 14px;
+
   overflow: hidden;
-  border: 1px solid var(--bd);
+
 }
 
 .logos-tape__item img {
@@ -1326,6 +1326,11 @@ button {
 
   .caso-real__video-col {
     width: 100%;
+    order: 2;
+  }
+
+  .caso-real__body {
+    order: 1;
   }
 
   .caso-real__row {
