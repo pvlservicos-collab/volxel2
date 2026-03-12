@@ -2239,6 +2239,7 @@ button {
     .hero__logo {
       width: 100px;
       padding-bottom: 51vw;
+      text-align: left;
     }
 
     .hero__headline {
@@ -2260,7 +2261,7 @@ button {
     }
 
     .hero__cta {
-      font-size: 12px;
+      font-size: 11px;
       padding: 16px 24px;
       width: 100%;
       text-align: center;
@@ -2319,5 +2320,12 @@ button {
     .form__btn {
       font-size: 12px;
     }
+
+    .pulse-stat {
+
+      font-size: 0.7rem;
+
+    }
+
   }
 }
