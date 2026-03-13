@@ -2262,7 +2262,7 @@ button {
 
     .hero__cta {
       font-size: 11px;
-      padding: 16px 18px;
+      padding: 16px 10px;
       width: 100%;
       text-align: center;
     }
@@ -2314,6 +2314,11 @@ button {
       width: 100%;
       justify-content: center;
       text-align: center;
+      font-size: 11px;
+    }
+
+    .cta-gold--big {
+      padding: 16px 20px;
       font-size: 11px;
     }
 
