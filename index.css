@@ -428,13 +428,6 @@ button {
 }
 
 
-
-
-
-
-
-
-
 /* ================================================================
    LOGOS BAR — Scroll infinito
    ================================================================ */
@@ -495,9 +488,7 @@ button {
   flex-shrink: 0;
   width: 110px;
   height: 110px;
-
   overflow: hidden;
-
 }
 
 .logos-tape__item img {
@@ -550,10 +541,6 @@ button {
 }
 
 
-
-
-
-
 /* ================================================================
    DOBRA 2 — DOR
    ================================================================ */
@@ -582,7 +569,6 @@ button {
   margin: 0 auto 72px;
 }
 
-/* NOVO: destaque dourado na palavra "dinheiro" */
 .dor__headline--gold {
   color: var(--gold);
   font-style: normal;
@@ -598,7 +584,7 @@ button {
 }
 
 /* ================================================================
-   DOBRA 2 — CARDS VERTICAIS (pixel-match da referência)
+   DOBRA 2 — CARDS VERTICAIS
    ================================================================ */
 
 .dor__cards-wrap {
@@ -609,7 +595,6 @@ button {
   width: 100%;
 }
 
-/* ── Card base ── */
 .dor__card {
   width: 100%;
   max-width: 420px;
@@ -622,25 +607,21 @@ button {
   position: relative;
 }
 
-/* CARD 1 — vermelho */
 .dor__card--problema {
   background: linear-gradient(180deg, #150303 0%, #0a0101 100%);
   border: 1px solid #5a1515;
 }
 
-/* CARD 2 — cinza */
 .dor__card--cinza {
   background: linear-gradient(180deg, #141414 0%, #090909 100%);
   border: 1px solid #222222;
 }
 
-/* CARD 3 — verde */
 .dor__card--virada {
   background: linear-gradient(180deg, #081a0f 0%, #040e09 100%);
   border: 1px solid #0f3d1e;
 }
 
-/* ── Badge flutua sobre a borda superior ── */
 .dor__card-badge {
   position: absolute;
   top: -15px;
@@ -674,7 +655,6 @@ button {
   border: 1px solid #22c55e;
 }
 
-/* ── Lista de itens ── */
 .dor__card-items {
   display: flex;
   flex-direction: column;
@@ -682,7 +662,6 @@ button {
   width: 100%;
 }
 
-/* ── Item base ── */
 .dor__card-item {
   border-radius: 10px;
   padding: 11px 14px;
@@ -696,7 +675,6 @@ button {
   color: #ffffff;
 }
 
-/* Ícone genérico */
 .dor__card-item .ico {
   font-style: normal;
   font-size: .9rem;
@@ -715,7 +693,6 @@ button {
   color: #9ca3af !important;
 }
 
-/* ✓ verde — fundo vinho */
 .dor__card-item--green {
   background: #1e0b0b;
   color: #ffffff;
@@ -725,7 +702,6 @@ button {
   color: var(--gold);
 }
 
-/* ✗ vermelho — caixa escura */
 .dor__card-item--red {
   background: #160505;
   color: #ffffff;
@@ -735,7 +711,6 @@ button {
   color: #f87171;
 }
 
-/* ? cinza — caixa escura */
 .dor__card-item--dark {
   background: #111111;
   color: #ffffff;
@@ -746,7 +721,6 @@ button {
   color: #9ca3af;
 }
 
-/* consequências — sem caixa, ícone amarelo, texto branco */
 .dor__card-item--ghost {
   background: transparent;
   color: #ffffff;
@@ -759,7 +733,6 @@ button {
   color: var(--gold);
 }
 
-/* ✓ virada — fundo verde escuro */
 .dor__card-item--gold {
   background: #081a0f;
   color: #ffffff;
@@ -769,7 +742,6 @@ button {
   color: var(--gold);
 }
 
-/* ── Texto central — borda esquerda + degradê ── */
 .dor__card-text {
   font-size: .88rem;
   font-weight: 600;
@@ -810,13 +782,11 @@ button {
   font-weight: 900;
 }
 
-/* ── CTA ── */
 .dor__cta-wrap {
   text-align: center;
   margin-top: 48px;
 }
 
-/* helpers */
 .check-green {
   color: #4ade80;
   font-weight: 900;
@@ -835,7 +805,6 @@ button {
   margin-right: 6px;
 }
 
-/* ── Mobile ── */
 @media (max-width: 600px) {
   .dor {
     padding: 60px 16px 70px;
@@ -869,16 +838,6 @@ button {
   padding: 100px 40px;
 }
 
-
-
-/* ================================================================
-   DOBRA 3 — PROVA SOCIAL
-   ================================================================ */
-.prova {
-  background: linear-gradient(90deg, #0c0c0c 0%, var(--bg2) 40%, var(--bg2) 60%, #111111 100%);
-  padding: 100px 40px;
-}
-
 .prova__sub {
   font-size: 1rem;
   color: #ffffff;
@@ -895,6 +854,13 @@ button {
   margin: 52px 0 20px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--bd);
+}
+
+/* ── Mobile: centraliza o label de seção ── */
+@media (max-width: 700px) {
+  .prova__section-label {
+    text-align: center;
+  }
 }
 
 /* ================================================================
@@ -1074,11 +1040,23 @@ button {
   margin: 0;
 }
 
+/* ── Mobile: centraliza depoimento em vídeo ── */
 @media (max-width: 700px) {
   .pvideo__inner {
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 16px;
+    text-align: center;
+  }
+
+  .pvideo__auth {
+    justify-content: center;
+  }
+
+  .pvideo__quote {
+    border-left: none;
+    padding-left: 0;
+    text-align: center;
   }
 }
 
@@ -1178,13 +1156,11 @@ button {
   align-items: center;
 }
 
-/* coluna do vídeo — largura fixa para vídeo vertical */
 .caso-real__video-col {
   flex-shrink: 0;
   width: 280px;
 }
 
-/* coluna do depoimento — ocupa o resto */
 .caso-real__body {
   flex: 1;
   display: flex;
@@ -1317,11 +1293,14 @@ button {
   margin: 0;
 }
 
+/* ── Mobile: centraliza caso real ── */
 @media (max-width: 700px) {
   .caso-real {
     flex-direction: column;
     gap: 28px;
     padding: 24px 20px;
+    text-align: center;
+    align-items: center;
   }
 
   .caso-real__video-col {
@@ -1331,6 +1310,21 @@ button {
 
   .caso-real__body {
     order: 1;
+    align-items: center;
+  }
+
+  .caso-real__badge {
+    align-self: center;
+  }
+
+  .caso-real__quote {
+    border-left: none;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .caso-real__auth {
+    justify-content: center;
   }
 
   .caso-real__row {
@@ -1683,6 +1677,11 @@ button {
   .valor__reuniao {
     padding: 24px 20px;
   }
+
+  /* ── Mobile: centraliza "Você recebe para decidir" ── */
+  .valor__section-label {
+    text-align: center;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1882,21 +1881,61 @@ button {
   border-radius: 999px;
 }
 
+/* ── Mobile: centraliza "Diagnóstico gratuito" ── */
+/* ── Mobile: centraliza "O próximo passo é seu / 30 dias" ── */
 @media (max-width: 600px) {
   .fechamento {
-    padding: 70px 24px;
+    padding: 70px 24px !important;
+  }
+
+  .fechamento__inner {
+    align-items: center !important;
+  }
+
+  .fechamento__eyebrow {
+    display: block !important;
+    text-align: center !important;
+    align-self: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: fit-content !important;
   }
 
   .fechamento__hl {
-    font-size: clamp(1.8rem, 7vw, 2.4rem);
+    font-size: clamp(1.8rem, 7vw, 2.4rem) !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .fechamento__sub {
+    text-align: center !important;
+    width: 100% !important;
   }
 
   .fechamento__vagas {
-    padding: 22px 18px;
+    padding: 22px 18px !important;
+    text-align: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .fechamento__vagas-header {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+
+  .fechamento__vagas-label,
+  .fechamento__vagas-desc {
+    text-align: center !important;
   }
 
   .fechamento__vagas-num {
-    font-size: 3.5rem;
+    font-size: 3.5rem !important;
+  }
+
+  .fechamento__selos {
+    justify-content: center !important;
   }
 }
 
@@ -2100,13 +2139,59 @@ button {
   }
 }
 
+/* ── Mobile: centraliza "Diagnóstico gratuito" ── */
+/* ── Mobile: centraliza "Diagnóstico gratuito" ── */
 @media (max-width: 600px) {
   .formulario {
-    padding: 70px 24px;
+    padding: 70px 24px !important;
+  }
+
+  .formulario .sec-hd,
+  .formulario .sec-eyebrow {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .form__inner {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
   }
 
   .form__box {
-    padding: 24px 20px;
+    padding: 24px 20px !important;
+  }
+
+  .form__hl {
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .form__steps li {
+    justify-content: center !important;
+  }
+
+  .form__destaque {
+    text-align: center !important;
+    border-left: none !important;
+    padding-left: 0 !important;
+    border-top: 3px solid var(--gold) !important;
+    padding-top: 12px !important;
+    width: 100% !important;
+  }
+
+  .form__selos {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .form__selos span {
+    text-align: center !important;
+  }
+
+  .form__side-title {
+    text-align: center !important;
+    width: 100% !important;
   }
 }
 
@@ -2214,123 +2299,173 @@ button {
     justify-content: center;
     text-align: center;
   }
+}
 
-  /* ================================================================
-     RESPONSIVO — HERO MOBILE (≤ 768px)
-     ================================================================ */
-  @media (max-width: 768px) {
-    .hero {
-      background-image: url('f1-mob.jpg');
-      background-position: center top;
-    }
-
-    .hero__inner {
-      grid-template-columns: 1fr;
-      padding-top: 1vw;
-      padding-bottom: 5vw;
-      padding-left: 6%;
-      padding-right: 6%;
-    }
-
-    .hero__image-col {
-      display: none;
-    }
-
-    .hero__logo {
-      width: 100px;
-      padding-bottom: 51vw;
-      text-align: left;
-    }
-
-    .hero__headline {
-      font-size: 4.5vw;
-    }
-
-    .hero__headline--gold {
-      font-size: 4.5vw;
-    }
-
-    .hero__headline--sub {
-      font-size: 4.7vw;
-    }
-
-    .hero__proof {
-      font-size: 3.5vw;
-      padding-right: 0;
-      padding-bottom: 1vw;
-    }
-
-    .hero__cta {
-      font-size: 11px;
-      padding: 16px 10px;
-      width: 100%;
-      text-align: center;
-    }
-
-    .logos-bar__label {
-      font-size: 2.15vw;
-      padding: 6px 4px;
-      width: 100%;
-      text-align: center;
-    }
-
-    .hero__bullet {
-      font-size: 3.4vw;
-    }
-
-    .hero__bullet-icon {
-      width: 22px;
-      height: 22px;
-      font-size: 3vw;
-    }
+/* ================================================================
+   RESPONSIVO — HERO MOBILE (≤ 768px)
+   ================================================================ */
+@media (max-width: 768px) {
+  .hero {
+    background-image: url('f1-mob.jpg');
+    background-position: center top;
   }
 
-  /* ================================================================
-     RESPONSIVO — MOBILE (≤ 600px)
-     ================================================================ */
-  @media (max-width: 600px) {
-    .logos-bar {
-      padding: 32px 0;
-    }
+  .hero__inner {
+    grid-template-columns: 1fr;
+    padding-top: 1vw;
+    padding-bottom: 5vw;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
 
-    .sec-title {
-      font-size: clamp(1.4rem, 5.5vw, 1.9rem);
-    }
+  .hero__image-col {
+    display: none;
+  }
 
-    .dor__headline {
-      font-size: clamp(1.3rem, 5vw, 1.8rem);
-    }
+  .hero__logo {
+    width: 100px;
+    padding-bottom: 51vw;
+    text-align: left;
+  }
 
-    .fechamento__hl {
-      font-size: clamp(1.5rem, 6vw, 2.2rem);
-    }
+  .hero__headline {
+    font-size: 4.5vw;
+  }
 
-    .form__box {
-      padding: 24px 20px;
-    }
+  .hero__headline--gold {
+    font-size: 4.5vw;
+  }
 
-    .cta-gold,
-    .cta-outline {
-      width: 100%;
-      justify-content: center;
-      text-align: center;
-      font-size: 11px;
-    }
+  .hero__headline--sub {
+    font-size: 4.7vw;
+  }
 
-    .cta-gold--big {
-      padding: 16px 20px;
-      font-size: 11px;
-    }
+  .hero__proof {
+    font-size: 3.5vw;
+    padding-right: 0;
+    padding-bottom: 1vw;
+  }
 
-    .form__btn {
-      font-size: 12px;
-    }
+  .hero__cta {
+    font-size: 11px;
+    padding: 16px 10px;
+    width: 100%;
+    text-align: center;
+  }
 
-    .pulse-stat {
+  .logos-bar__label {
+    font-size: 2.15vw;
+    padding: 6px 4px;
+    width: 100%;
+    text-align: center;
+  }
 
-      font-size: 0.7rem;
+  .hero__bullet {
+    font-size: 3.4vw;
+  }
 
-    }
+  .hero__bullet-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 3vw;
+  }
+}
 
+/* ================================================================
+   RESPONSIVO — MOBILE (≤ 600px)
+   ================================================================ */
+@media (max-width: 600px) {
+  .logos-bar {
+    padding: 32px 0;
+  }
+
+  .sec-title {
+    font-size: clamp(1.4rem, 5.5vw, 1.9rem);
+  }
+
+  .dor__headline {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+  }
+
+  .fechamento__hl {
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+  }
+
+  .form__box {
+    padding: 24px 20px;
+  }
+
+  .cta-gold,
+  .cta-outline {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    font-size: 11px;
+  }
+
+  .cta-gold--big {
+    padding: 16px 20px;
+    font-size: 11px;
+  }
+
+  .form__btn {
+    font-size: 12px;
+  }
+
+  .pulse-stat {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .prova__stat-row {
+    justify-content: center !important;
+  }
+
+  .prova__stat {
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  .prova__stat-num,
+  .prova__stat-label {
+    text-align: center !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .valor__reuniao {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .valor__reuniao-header {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+
+  .valor__reuniao-header div {
+    text-align: center !important;
+  }
+
+  .valor__reuniao-txt {
+    text-align: center !important;
+    border-left: none !important;
+    padding-left: 0 !important;
+    border-top: 2px solid var(--gold-bd) !important;
+    padding-top: 12px !important;
+  }
+
+  .valor__reuniao-checks {
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  .valor__reuniao-checks li {
+    text-align: center !important;
+    justify-content: center !important;
   }
 }
