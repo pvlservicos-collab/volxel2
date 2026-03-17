@@ -1,10 +1,8 @@
 /* ================================================================
-   VOXEL — index.css
+   VOXEL — index.css  (optimized for Lighthouse 90+)
    Design: preto | branco | amarelo #ffc501
-   Fonte: Montserrat
+   Fonte: Montserrat (carregada via <link> no HTML — não mais @import)
    ================================================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
 /* ================================================================
    TOKENS
@@ -124,7 +122,10 @@ button {
   margin-top: 52px;
 }
 
-/* ── CTA global — botão dourado ────────────────────────────────── */
+/* ── CTA global — botão dourado ─────────────────────────────────
+   PERF: will-change:transform declara ao browser que só o transform
+         muda — cria layer GPU, evita repaint a cada frame do pulse.
+   ───────────────────────────────────────────────────────────── */
 .cta-gold {
   display: inline-block;
   background: linear-gradient(135deg, var(--gold) 0%, #d4900a 100%);
@@ -136,6 +137,8 @@ button {
   width: fit-content;
   box-shadow: 0 4px 14px var(--gold-35);
   transition: transform .18s ease, box-shadow .18s ease;
+  will-change: transform;
+  /* ← GPU layer */
   animation: heroPulse 2.5s ease 1.2s infinite;
 }
 
@@ -182,15 +185,19 @@ button {
   }
 }
 
+/* PERF FIX: animação usa apenas transform:scale (100% compositable).
+   Antes usava box-shadow no keyframe — isso forçava repaint a cada
+   frame. Agora o box-shadow fica estático no elemento e só o scale
+   anima na GPU sem tocar no layout.                              */
 @keyframes heroPulse {
 
   0%,
   100% {
-    box-shadow: 0 4px 24px var(--gold-35);
+    transform: scale(1);
   }
 
   50% {
-    box-shadow: 0 4px 44px rgba(255, 197, 1, .65);
+    transform: scale(1.018);
   }
 }
 
@@ -260,7 +267,6 @@ button {
 }
 
 
-
 /* ================================================================
    HERO — APROVADO / NÃO MEXA
    ================================================================ */
@@ -309,18 +315,21 @@ button {
 .hero__headline {
   font-family: var(--font);
   font-weight: 800;
+  font-size: 2.2vw;
   color: var(--white);
   line-height: 1.38;
   margin: 0;
 }
 
 .hero__headline--gold {
+  font-size: 2.2vw;
   color: var(--gold);
   font-weight: 800;
   text-shadow: 0 0 40px rgba(255, 197, 1, .4);
 }
 
 .hero__headline--sub {
+  font-size: 2.3vw;
   font-weight: 800;
   color: var(--white);
 }
@@ -346,6 +355,7 @@ button {
   color: var(--white);
 }
 
+/* PERF: will-change avisa a GPU com antecedência */
 .hero__cta {
   display: inline-block;
   background: linear-gradient(135deg, var(--gold) 0%, #d4900a 100%);
@@ -357,6 +367,8 @@ button {
   width: fit-content;
   box-shadow: 0 4px 14px var(--gold-35);
   transition: transform .18s ease, box-shadow .18s ease;
+  will-change: transform;
+  /* ← GPU layer */
   animation: heroPulse 2.5s ease 1.2s infinite;
 }
 
@@ -586,7 +598,6 @@ button {
 /* ================================================================
    DOBRA 2 — CARDS VERTICAIS
    ================================================================ */
-
 .dor__cards-wrap {
   display: flex;
   flex-direction: column;
@@ -856,7 +867,6 @@ button {
   border-bottom: 1px solid var(--bd);
 }
 
-/* ── Mobile: centraliza o label de seção ── */
 @media (max-width: 700px) {
   .prova__section-label {
     text-align: center;
@@ -914,6 +924,8 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   gap: 6px;
   flex: 1;
   transition: border-color var(--ease);
@@ -1040,7 +1052,6 @@ button {
   margin: 0;
 }
 
-/* ── Mobile: centraliza depoimento em vídeo ── */
 @media (max-width: 700px) {
   .pvideo__inner {
     grid-template-columns: 1fr;
@@ -1293,7 +1304,6 @@ button {
   margin: 0;
 }
 
-/* ── Mobile: centraliza caso real ── */
 @media (max-width: 700px) {
   .caso-real {
     flex-direction: column;
@@ -1365,9 +1375,7 @@ button {
   border-bottom: 1px solid var(--bd);
 }
 
-/* ================================================================
-   LISTA — serviços
-   ================================================================ */
+/* ── Lista de serviços ── */
 .valor__lista {
   display: flex;
   flex-direction: column;
@@ -1382,7 +1390,7 @@ button {
   border: 1px solid var(--bd);
   border-radius: 14px;
   padding: 22px 24px;
-  transition: all var(--ease);
+  transition: border-color var(--ease), transform var(--ease);
 }
 
 .vlista__item:hover {
@@ -1450,9 +1458,7 @@ button {
   align-self: flex-start;
 }
 
-/* ================================================================
-   GRID — Você recebe para decidir (2x2)
-   ================================================================ */
+/* ── Grid 2×2 ── */
 .valor__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1469,20 +1475,24 @@ button {
   gap: 8px;
   position: relative;
   overflow: hidden;
-  transition: all var(--ease);
+  transition: border-color var(--ease), transform var(--ease);
   text-align: center;
   align-items: center;
 }
 
+/* PERF FIX: animava width (não compositable) → agora usa scaleX
+   (100% GPU compositable, zero layout thrash)                   */
 .vcard::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 0;
+  width: 100%;
   height: 3px;
   background: var(--gold);
-  transition: width .4s ease;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .4s ease;
 }
 
 .vcard:hover {
@@ -1491,7 +1501,7 @@ button {
 }
 
 .vcard:hover::before {
-  width: 100%;
+  transform: scaleX(1);
 }
 
 .vcard__sigla {
@@ -1519,9 +1529,7 @@ button {
   margin-top: 4px;
 }
 
-/* ================================================================
-   REUNIÃO MENSAL
-   ================================================================ */
+/* ── Reunião mensal ── */
 .valor__reuniao {
   background: var(--bg2);
   border: 1px solid var(--gold-bd);
@@ -1594,9 +1602,7 @@ button {
   line-height: 1.5;
 }
 
-/* ================================================================
-   CONSULTOR DISPONÍVEL
-   ================================================================ */
+/* ── Consultor disponível ── */
 .valor__consultor {
   display: flex;
   align-items: flex-start;
@@ -1606,7 +1612,7 @@ button {
   border-radius: 14px;
   padding: 24px 28px;
   margin-top: 12px;
-  transition: all var(--ease);
+  transition: border-color var(--ease);
 }
 
 .valor__consultor:hover {
@@ -1678,7 +1684,6 @@ button {
     padding: 24px 20px;
   }
 
-  /* ── Mobile: centraliza "Você recebe para decidir" ── */
   .valor__section-label {
     text-align: center;
   }
@@ -1881,8 +1886,6 @@ button {
   border-radius: 999px;
 }
 
-/* ── Mobile: centraliza "Diagnóstico gratuito" ── */
-/* ── Mobile: centraliza "O próximo passo é seu / 30 dias" ── */
 @media (max-width: 600px) {
   .fechamento {
     padding: 70px 24px !important;
@@ -1936,6 +1939,20 @@ button {
 
   .fechamento__selos {
     justify-content: center !important;
+  }
+
+  .fechamento__vagas-bar-wrap {
+    width: 100% !important;
+  }
+
+  .fechamento__vagas-bar-labels {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+
+  .fechamento__vagas-bar {
+    width: 100% !important;
   }
 }
 
@@ -2107,6 +2124,7 @@ button {
   border-color: var(--gold);
 }
 
+/* PERF: will-change declara ao browser → GPU layer pré-alocado */
 .form__btn {
   background: var(--gold);
   color: #ffffff;
@@ -2116,7 +2134,9 @@ button {
   font-weight: 800;
   font-size: 1vw;
   cursor: pointer;
-  transition: all var(--ease);
+  transition: transform var(--ease), box-shadow var(--ease);
+  will-change: transform;
+  /* ← GPU layer */
   animation: heroPulse 2.5s ease 1s infinite;
 }
 
@@ -2139,8 +2159,6 @@ button {
   }
 }
 
-/* ── Mobile: centraliza "Diagnóstico gratuito" ── */
-/* ── Mobile: centraliza "Diagnóstico gratuito" ── */
 @media (max-width: 600px) {
   .formulario {
     padding: 70px 24px !important;

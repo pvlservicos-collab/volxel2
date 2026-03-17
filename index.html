@@ -7,7 +7,25 @@
   <title>Voxel - Gestão Financeira para Restaurantes</title>
   <meta name="description"
     content="Descubra para onde vai cada real do seu restaurante e tenha lucro previsível em 30 dias.">
+
+  <!-- PERF: preconnect — avisa o browser antes de precisar das origens -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://scripts.converteai.net">
+  <link rel="preconnect" href="https://images.converteai.net">
+  <link rel="preconnect" href="https://cdn.converteai.net">
+  <link rel="preconnect" href="https://vt-h-1.b-cdn.net">
+
   <link rel="stylesheet" href="index.css">
+
+  <!-- PERF: fonte fora do caminho crítico (não bloqueia render) -->
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap">
+  </noscript>
 </head>
 
 <body>
@@ -19,14 +37,14 @@
     <div class="hero__inner">
       <div class="hero__content">
 
-        <img src="logo-voxel.png" alt="Voxel" class="hero__logo">
+        <img src="logo-voxel.png" alt="Voxel" class="hero__logo" width="175" height="36" fetchpriority="high"
+          loading="eager">
 
         <h1 class="hero__headline">
           DESCUBRA PARA ONDE VAI <span class="hero__headline--gold">CADA REAL DO SEU RESTAURANTE</span> E TENHA LUCRO
           PREVISÍVEL EM <u style="text-decoration-color: var(--gold);">30 DIAS</u>
         </h1>
 
-        <!-- ALTERAÇÃO: "terceirizando o financeiro com a Voxel" -->
         <p class="hero__proof">
           <strong>Mais de 300 restaurantes</strong> já conquistaram isso
           terceirizando o financeiro com a Voxel.
@@ -66,32 +84,39 @@
       <div class="hero__image-col" aria-hidden="true"></div>
     </div>
   </section>
-  <!-- ============================================================ -->
 
   <!-- ============================================================
        LOGOS BAR — Scroll infinito
        ============================================================ -->
   <section class="logos-bar">
-    <!-- ALTERAÇÃO: novo texto -->
-    <p class="logos-bar__label">Confiam na maior assessoria financeira para Foodservice da América latina
-
-    </p>
+    <p class="logos-bar__label">Confiam na maior assessoria financeira para Foodservice da América latina</p>
     <div class="logos-tape">
       <div class="logos-tape__track" id="logoTrack">
-        <div class="logos-tape__item"><img src="Logo - Meatz Burguer.png" alt="Meatz Burguer"></div>
-        <div class="logos-tape__item"><img src="Logo - Pizza Prime.png" alt="Pizza Prime"></div>
-        <div class="logos-tape__item"><img src="Logo - Subway.png" alt="Subway"></div>
-        <div class="logos-tape__item"><img src="Logo - Bob´s.png" alt="Bob's"></div>
-        <div class="logos-tape__item"><img src="Logo - Herois Burguer.png" alt="Heróis Burguer"></div>
-        <div class="logos-tape__item"><img src="Logo - Cannoleria do Bixiga.png" alt="Cannoleria do Bixiga"></div>
-        <div class="logos-tape__item"><img src="Logo - Forneria Original.png" alt="Forneria Original"></div>
-        <div class="logos-tape__item"><img src="Logo - Janga.png" alt="Janga"></div>
-        <div class="logos-tape__item"><img src="Logo - La pasta Gialla.png" alt="La Pasta Gialla"></div>
-        <div class="logos-tape__item"><img src="Logo - Mirá.png" alt="Mirá"></div>
-        <div class="logos-tape__item"><img src="Logo - Outros 500.png" alt="Outros 500"></div>
-        <div class="logos-tape__item"><img src="Logo - QCB.png" alt="QCB"></div>
+        <div class="logos-tape__item"><img src="Logo - Meatz Burguer.png" alt="Meatz Burguer" width="110" height="110"
+            loading="lazy" decoding="async"></div>
+        <div class="logos-tape__item"><img src="Logo - Pizza Prime.png" alt="Pizza Prime" width="110" height="110"
+            loading="lazy" decoding="async"></div>
+        <div class="logos-tape__item"><img src="Logo - Subway.png" alt="Subway" width="110" height="110" loading="lazy"
+            decoding="async"></div>
+        <div class="logos-tape__item"><img src="Logo - Bob´s.png" alt="Bob's" width="110" height="110" loading="lazy"
+            decoding="async"></div>
+        <div class="logos-tape__item"><img src="Logo - Herois Burguer.png" alt="Heróis Burguer" width="110" height="110"
+            loading="lazy" decoding="async"></div>
+        <div class="logos-tape__item"><img src="Logo - Cannoleria do Bixiga.png" alt="Cannoleria do Bixiga" width="110"
+            height="110" loading="lazy" decoding="async"></div>
+        <div class="logos-tape__item"><img src="Logo - Forneria Original.png" alt="Forneria Original" width="110"
+            height="110" loading="lazy" decoding="async"></div>
+        <div class="logos-tape__item"><img src="Logo - Janga.png" alt="Janga" width="110" height="110" loading="lazy"
+            decoding="async"></div>
+        <div class="logos-tape__item"><img src="Logo - La pasta Gialla.png" alt="La Pasta Gialla" width="110"
+            height="110" loading="lazy" decoding="async"></div>
+        <div class="logos-tape__item"><img src="Logo - Mirá.png" alt="Mirá" width="110" height="110" loading="lazy"
+            decoding="async"></div>
+        <div class="logos-tape__item"><img src="Logo - Outros 500.png" alt="Outros 500" width="110" height="110"
+            loading="lazy" decoding="async"></div>
+        <div class="logos-tape__item"><img src="Logo - QCB.png" alt="QCB" width="110" height="110" loading="lazy"
+            decoding="async"></div>
       </div>
-
     </div>
     <p class="pulse-stat">
       <span class="pulse-dot"></span>
@@ -116,16 +141,12 @@
       animate();
     })();
   </script>
-  <!-- ============================================================ -->
-
 
   <!-- ============================================================
        DOBRA 2 — DOR
        ============================================================ -->
   <section class="dor" id="dor">
     <div class="wrap">
-
-
 
       <h2 class="dor__headline reveal">
         Você não está perdendo <span class="dor__headline--gold">dinheiro</span> por falta de esforço.
@@ -134,10 +155,8 @@
 
       <div class="dor__cards-wrap">
 
-        <!-- CARD 1: O PROBLEMA -->
         <div class="dor__card dor__card--problema reveal">
           <div class="dor__card-badge">O Problema</div>
-
           <div class="dor__card-items">
             <div class="dor__card-item dor__card-item--green">
               <i class="ico">✓</i><span>Salão <strong>cheio</strong></span>
@@ -149,9 +168,7 @@
               <i class="ico">✓</i><span>Muito <strong>trabalho</strong></span>
             </div>
           </div>
-
           <p class="dor__card-text">Mas no final do mês o caixa <strong>não reflete</strong> o movimento.</p>
-
           <div class="dor__card-items">
             <div class="dor__card-item dor__card-item--red">
               <i class="ico ico--red">✕</i><span>O sistema gera relatório que ninguém entende</span>
@@ -162,10 +179,8 @@
           </div>
         </div>
 
-        <!-- CARD 2: ENQUANTO ISSO -->
         <div class="dor__card dor__card--cinza reveal">
           <div class="dor__card-badge">Enquanto isso</div>
-
           <div class="dor__card-items">
             <div class="dor__card-item dor__card-item--dark">
               <i class="ico ico--gray">→</i><span>Quanto <strong>posso investir</strong> no próximo mês?</span>
@@ -178,9 +193,7 @@
               <i class="ico ico--gray">→</i><span>Posso abrir uma <strong>segunda unidade</strong>?</span>
             </div>
           </div>
-
           <p class="dor__card-text">Você responde no achismo porque não tem outra opção.</p>
-
           <div class="dor__card-items">
             <div class="dor__card-item dor__card-item--ghost">
               <i class="ico">✕</i><span>Conversas <strong>desnecessárias</strong></span>
@@ -189,19 +202,15 @@
               <i class="ico">✕</i><span>Noites <strong>mal dormidas</strong></span>
             </div>
             <div class="dor__card-item dor__card-item--ghost">
-              <i class="ico">✕</i><span>Finais de semana <strong>sem descanso
-                </strong></span>
+              <i class="ico">✕</i><span>Finais de semana <strong>sem descanso</strong></span>
             </div>
           </div>
         </div>
 
-        <!-- CARD 3: A VIRADA -->
         <div class="dor__card dor__card--virada reveal">
           <div class="dor__card-badge dor__card-badge--green">A Virada</div>
-
           <p class="dor__card-text--virada">A <strong>Voxel</strong> faz o que planilha e sistema nunca fizeram e te
-            mostra exatamente para onde vai cada real. </p>
-
+            mostra exatamente para onde vai cada real.</p>
           <div class="dor__card-items">
             <div class="dor__card-item dor__card-item--gold">
               <i class="ico">✓</i><span>Você cresce <strong>com segurança</strong></span>
@@ -223,13 +232,6 @@
 
     </div>
   </section>
-  <!-- ============================================================ -->
-
-  <!-- ============================================================
-
-
-
-
 
   <!-- ============================================================
        DOBRA 3 — PROVA SOCIAL
@@ -239,18 +241,15 @@
 
       <div class="sec-hd reveal">
         <p class="sec-eyebrow">Ouça quem já passou por isso</p>
-        <!-- ALTERAÇÃO: nova headline e sub -->
         <h2 class="sec-title">O que acontece quando o Dono de Restaurante <em>domina seu financeiro</em></h2>
         <p class="prova__sub">Mais de 300 tomaram essa decisão. Veja o que eles conquistaram.</p>
       </div>
 
-      <!-- ALTERAÇÃO: stats corrigidos -->
       <div class="prova__stats reveal">
         <div class="prova__stat2">
           <span class="prova__stat-num">+300</span>
           <span class="prova__stat-label">Restaurantes atendidos em 26 estados do Brasil e Portugal</span>
         </div>
-        <!-- ALTERAÇÃO: tirou +R$30mil, manteve só 30 dias com novo texto -->
         <div class="prova__stat-row">
           <div class="prova__stat" style="grid-column: 1 / -1;">
             <span class="prova__stat-num">30 dias</span>
@@ -261,7 +260,6 @@
 
       <p class="prova__section-label reveal">Depoimentos em vídeo</p>
 
-      <!-- VÍDEOS COM DEPOIMENTO -->
       <div class="prova__videos">
 
         <div class="pvideo reveal">
@@ -277,7 +275,8 @@
             </div>
             <div class="pvideo__body">
               <div class="pvideo__auth">
-                <div class="pvideo__av"><img src="Antonio.png" alt="António"></div>
+                <div class="pvideo__av"><img src="Antonio.png" alt="António" width="48" height="48" loading="lazy"
+                    decoding="async"></div>
                 <div>
                   <strong>António</strong>
                   <span>Galo Grijo — Porto, Portugal</span>
@@ -304,7 +303,8 @@
             </div>
             <div class="pvideo__body">
               <div class="pvideo__auth">
-                <div class="pvideo__av"><img src="Sinval.png" alt="Sinval"></div>
+                <div class="pvideo__av"><img src="Sinval.png" alt="Sinval" width="48" height="48" loading="lazy"
+                    decoding="async"></div>
                 <div>
                   <strong>Sinval Júnior</strong>
                   <span>Dom Manju — Brasília, DF</span>
@@ -331,7 +331,8 @@
             </div>
             <div class="pvideo__body">
               <div class="pvideo__auth">
-                <div class="pvideo__av"><img src="Marina.png" alt="Marina"></div>
+                <div class="pvideo__av"><img src="Marina.png" alt="Marina" width="48" height="48" loading="lazy"
+                    decoding="async"></div>
                 <div>
                   <strong>Marina Major</strong>
                   <span>Restaurante Major</span>
@@ -353,7 +354,8 @@
         <div class="pcard reveal">
           <div class="pcard__top">
             <div class="pcard__auth">
-              <div class="pcard__av"><img src="Jean.png" alt="Jean"></div>
+              <div class="pcard__av"><img src="Jean.png" alt="Jean" width="40" height="40" loading="lazy"
+                  decoding="async"></div>
               <div>
                 <strong>Jean</strong>
                 <span>Takematos — 4 unidades, Brasília</span>
@@ -367,7 +369,8 @@
         <div class="pcard reveal">
           <div class="pcard__top">
             <div class="pcard__auth">
-              <div class="pcard__av"><img src="leticia.png" alt="Letícia"></div>
+              <div class="pcard__av"><img src="leticia.png" alt="Letícia" width="40" height="40" loading="lazy"
+                  decoding="async"></div>
               <div>
                 <strong>Letícia</strong>
                 <span>Sabor Nordestino — Maceió, AL</span>
@@ -381,7 +384,8 @@
         <div class="pcard reveal">
           <div class="pcard__top">
             <div class="pcard__auth">
-              <div class="pcard__av"><img src="Felipe.png" alt="Felipe"></div>
+              <div class="pcard__av"><img src="Felipe.png" alt="Felipe" width="40" height="40" loading="lazy"
+                  decoding="async"></div>
               <div>
                 <strong>Felipe</strong>
                 <span>Meatz Burger — 18 operações, 5 estados</span>
@@ -389,14 +393,14 @@
             </div>
             <div class="pcard__stars">★★★★★</div>
           </div>
-          <p class="pcard__txt">"Parceiro no dia a dia e na estratégia nos dá certeza dos indicadores que importam."
-          </p>
+          <p class="pcard__txt">"Parceiro no dia a dia e na estratégia nos dá certeza dos indicadores que importam."</p>
         </div>
 
         <div class="pcard reveal">
           <div class="pcard__top">
             <div class="pcard__auth">
-              <div class="pcard__av"><img src="Rodrigo.png" alt="Rodrigo"></div>
+              <div class="pcard__av"><img src="Rodrigo.png" alt="Rodrigo" width="40" height="40" loading="lazy"
+                  decoding="async"></div>
               <div>
                 <strong>Rodrigo</strong>
                 <span>Mesanina — Brasília, DF</span>
@@ -409,8 +413,6 @@
 
       </div>
 
-      <!-- CASO REAL: Verona com vídeo -->
-
       <div class="caso-real reveal">
         <div class="caso-real__video-col">
           <vturb-smartplayer id="vid-69b2380a46625199476510ea" style="display: block; width: 100%;"></vturb-smartplayer>
@@ -422,7 +424,6 @@
         </div>
         <div class="caso-real__body">
           <div class="caso-real__badge">Caso real com número</div>
-
           <div class="caso-real__row">
             <div class="caso-real__mini caso-real__mini--gold">
               <span>+R$40mil</span>
@@ -435,7 +436,7 @@
           </div>
           <div class="caso-real__auth">
             <div class="caso-real__av">
-              <img src="Verona.png" alt="Verona Restaurante">
+              <img src="Verona.png" alt="Verona Restaurante" width="52" height="52" loading="lazy" decoding="async">
             </div>
             <div>
               <strong>Verona Restaurante</strong>
@@ -449,15 +450,12 @@
         </div>
       </div>
 
-
       <div class="sec-cta reveal">
         <a href="#form" class="cta-gold cta-gold--big">Quero ter clareza nos meus números</a>
       </div>
 
     </div>
-
   </section>
-  <!-- ============================================================ -->
 
   <!-- ============================================================
        DOBRA 4 — PROPOSTA DE VALOR
@@ -467,14 +465,11 @@
 
       <div class="sec-hd reveal">
         <p class="sec-eyebrow">O que a Voxel entrega</p>
-        <!-- ALTERAÇÃO: headline e sub corretos -->
         <h2 class="sec-title">Assumimos todo seu financeiro.</h2>
         <p class="valor__sub">Você foca no crescimento</p>
       </div>
 
-      <!-- ALTERAÇÃO: tirou label "A Voxel faz por você" -->
       <div class="valor__lista reveal">
-
         <div class="vlista__item">
           <div class="vlista__ico">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -488,7 +483,6 @@
             <p>Recebimento, agendamento e execução de todos os pagamentos do seu restaurante.</p>
           </div>
         </div>
-
         <div class="vlista__item">
           <div class="vlista__ico">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -504,7 +498,6 @@
             <p>Cada movimentação registrada e conferida todo dia para que seus números reflitam a realidade.</p>
           </div>
         </div>
-
         <div class="vlista__item">
           <div class="vlista__ico">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -518,7 +511,6 @@
             <p>iFood, UberEats, Cielo, Stone conferimos tudo para garantir que cada venda foi paga.</p>
           </div>
         </div>
-
         <div class="vlista__item vlista__item--destaque">
           <div class="vlista__ico">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -531,10 +523,8 @@
           <div class="vlista__body">
             <strong>Relatórios</strong>
             <p>Fechamento completo entregue todo inicio de mês</p>
-
           </div>
         </div>
-
       </div>
 
       <p class="valor__section-label reveal">Você recebe para decidir</p>
@@ -603,7 +593,6 @@
       </div>
 
       <div class="sec-cta reveal">
-        <!-- ALTERAÇÃO: tira traços, texto simples -->
         <p class="valor__cta-pre">Tudo isso começa com 30 minutos de diagnóstico gratuito.</p>
         <a href="#form" class="cta-gold cta-gold--big">Quero ter Clareza nos meus números</a>
         <div class="valor__cta-selos">
@@ -614,7 +603,6 @@
 
     </div>
   </section>
-  <!-- ============================================================ -->
 
   <!-- ============================================================
        DOBRA 5 — FECHAMENTO
@@ -630,7 +618,6 @@
           Você pode continuar no achismo. Ou pode ter <em>lucro previsível em 30 dias.</em>
         </h2>
 
-        <!-- ALTERAÇÃO: "O diagnóstico é gratuito e leva 30 minutos" -->
         <p class="fechamento__sub">
           O diagnóstico é gratuito e leva 30 minutos.
         </p>
@@ -641,8 +628,8 @@
             <span class="fechamento__vagas-badge">Limitado</span>
           </div>
           <div class="fechamento__vagas-num">18</div>
-          <p class="fechamento__vagas-desc">Novos restaurantes por mês limite real de capacidade dos nossos
-            consultores.</p>
+          <p class="fechamento__vagas-desc">Novos restaurantes por mês limite real de capacidade dos nossos consultores.
+          </p>
           <div class="fechamento__vagas-bar-wrap">
             <div class="fechamento__vagas-bar-labels">
               <span>11 vagas preenchidas</span>
@@ -673,7 +660,6 @@
       </div>
     </div>
   </section>
-  <!-- ============================================================ -->
 
   <!-- ============================================================
        DOBRA 6 — FORMULÁRIO
@@ -747,7 +733,6 @@
       </div>
     </div>
   </section>
-  <!-- ============================================================ -->
 
   <!-- ============================================================
        RODAPÉ
@@ -761,7 +746,6 @@
       </div>
     </div>
   </footer>
-  <!-- ============================================================ -->
 
   <script>
     var obs = new IntersectionObserver(function (entries) {
