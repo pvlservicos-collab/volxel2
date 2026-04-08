@@ -4,760 +4,268 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Voxel - Gestão Financeira para Restaurantes</title>
-  <meta name="description"
-    content="Descubra para onde vai cada real do seu restaurante e tenha lucro previsível em 30 dias.">
-
-  <!-- PERF: preconnect — avisa o browser antes de precisar das origens -->
+  <title>FOLLEM MÍDIA · Gestão de Conteúdo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://scripts.converteai.net">
-  <link rel="preconnect" href="https://images.converteai.net">
-  <link rel="preconnect" href="https://cdn.converteai.net">
-  <link rel="preconnect" href="https://vt-h-1.b-cdn.net">
-
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="index.css">
-
-  <!-- PERF: fonte fora do caminho crítico (não bloqueia render) -->
-  <link rel="preload"
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap">
-  </noscript>
 </head>
 
 <body>
 
-  <!-- ============================================================
-       DOBRA 1 — HERO
-       ============================================================ -->
-  <section class="hero" id="hero">
-    <div class="hero__inner">
-      <div class="hero__content">
+  <canvas id="confetti-canvas"></canvas>
 
-        <img src="logo-voxel.png" alt="Voxel" class="hero__logo" width="175" height="36" fetchpriority="high"
-          loading="eager">
-
-        <h1 class="hero__headline">
-          DESCUBRA PARA ONDE VAI <span class="hero__headline--gold">CADA REAL DO SEU RESTAURANTE</span> E TENHA
-          CLAREZA TOTAL EM <u style="text-decoration-color: var(--gold);">30 DIAS</u>
-
-
-        </h1>
-
-        <p class="hero__proof">
-          <strong>Mais de 300 restaurantes</strong> já conquistaram isso
-          terceirizando o financeiro com a Voxel.
-        </p>
-
-        <a href="#form" class="hero__cta" id="hero-cta">
-          Quero ter clareza nos meus números</a>
-
-        <ul class="hero__bullets">
-          <li class="hero__bullet hero__bullet--check">
-            <span class="hero__bullet-icon">✓</span>
-            Sem planilhas
-          </li>
-          <li class="hero__bullet">
-            <span class="hero__bullet-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>
-            </span>
-            Diagnóstico Gratuito
-          </li>
-          <li class="hero__bullet">
-            <span class="hero__bullet-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-            </span>
-            Fale agora com um especialista
-          </li>
-        </ul>
-
-      </div>
-      <div class="hero__image-col" aria-hidden="true"></div>
+  <!-- MOBILE TOPBAR -->
+  <div class="mobile-topbar">
+    <div class="mobile-brand">
+      <div class="brand-mark-sm">F</div>
+      <span class="mobile-brand-name">FOLLEM</span>
     </div>
-  </section>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 
-  <!-- ============================================================
-       LOGOS BAR — Scroll infinito
-       ============================================================ -->
-  <section class="logos-bar">
-    <p class="logos-bar__label">Confiam na maior assessoria financeira para Foodservice da América latina</p>
-    <div class="logos-tape">
-      <div class="logos-tape__track" id="logoTrack">
-        <div class="logos-tape__item"><img src="Logo - Meatz Burguer.png" alt="Meatz Burguer" width="110" height="110"
-            loading="lazy" decoding="async"></div>
-        <div class="logos-tape__item"><img src="Logo - Pizza Prime.png" alt="Pizza Prime" width="110" height="110"
-            loading="lazy" decoding="async"></div>
-        <div class="logos-tape__item"><img src="Logo - Subway.png" alt="Subway" width="110" height="110" loading="lazy"
-            decoding="async"></div>
-        <div class="logos-tape__item"><img src="Logo - Bob´s.png" alt="Bob's" width="110" height="110" loading="lazy"
-            decoding="async"></div>
-        <div class="logos-tape__item"><img src="Logo - Herois Burguer.png" alt="Heróis Burguer" width="110" height="110"
-            loading="lazy" decoding="async"></div>
-        <div class="logos-tape__item"><img src="Logo - Cannoleria do Bixiga.png" alt="Cannoleria do Bixiga" width="110"
-            height="110" loading="lazy" decoding="async"></div>
-        <div class="logos-tape__item"><img src="Logo - Forneria Original.png" alt="Forneria Original" width="110"
-            height="110" loading="lazy" decoding="async"></div>
-        <div class="logos-tape__item"><img src="Logo - Janga.png" alt="Janga" width="110" height="110" loading="lazy"
-            decoding="async"></div>
-        <div class="logos-tape__item"><img src="Logo - La pasta Gialla.png" alt="La Pasta Gialla" width="110"
-            height="110" loading="lazy" decoding="async"></div>
-        <div class="logos-tape__item"><img src="Logo - Mirá.png" alt="Mirá" width="110" height="110" loading="lazy"
-            decoding="async"></div>
-        <div class="logos-tape__item"><img src="Logo - Outros 500.png" alt="Outros 500" width="110" height="110"
-            loading="lazy" decoding="async"></div>
-        <div class="logos-tape__item"><img src="Logo - QCB.png" alt="QCB" width="110" height="110" loading="lazy"
-            decoding="async"></div>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay" onclick="closeMobileMenu()"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <div class="brand-mark">F</div>
+      <div class="brand-text"><span class="brand-name">FOLLEM</span><span class="brand-sub">mídia agência</span></div>
+      <button class="mobile-menu-close" onclick="closeMobileMenu()">✕</button>
+    </div>
+    <nav class="mobile-nav">
+      <button class="nav-item nav-expert active" data-page="expert" onclick="navigate('expert');closeMobileMenu()">
+        <span class="nav-icon">▶</span><span class="nav-label">EXPERT</span>
+      </button>
+      <button class="nav-item nav-social" data-page="social" onclick="navigate('social');closeMobileMenu()">
+        <span class="nav-icon">◈</span><span class="nav-label">Social Media</span>
+        <span class="nav-badge" id="nav-badge-mobile" style="display:none">0</span>
+      </button>
+      <button class="nav-item nav-editor" data-page="editor" onclick="navigate('editor');closeMobileMenu()">
+        <span class="nav-icon">🎬</span><span class="nav-label">Editor</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- MASCOT -->
+  <div id="mascot-wrap">
+    <div id="mascot-menu" class="mascot-menu">
+      <button class="mascot-btn" data-action="reproduz">🎬 Pedi alterações</button>
+      <button class="mascot-btn" data-action="boa">🤩 Boa! Elogiar</button>
+      <button class="mascot-btn" data-action="melhore">📈 Melhore</button>
+    </div>
+    <div id="mascot-bubble" class="mascot-bubble">Grave!</div>
+    <img id="mascot-gif" src="g3.gif" alt="mascote" draggable="false">
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-mark">F</div>
+      <div class="brand-text">
+        <span class="brand-name">FOLLEM</span>
+        <span class="brand-sub">mídia agência</span>
       </div>
     </div>
-    <p class="pulse-stat">
-      <span class="pulse-dot"></span>
-      Mais de <strong>300 restaurantes</strong> no Brasil e em Portugal
-    </p>
-  </section>
 
-  <script>
-    (function () {
-      const track = document.getElementById('logoTrack');
-      if (!track) return;
-      track.innerHTML += track.innerHTML;
-      let pos = 0;
-      const speed = 0.5;
-      const halfWidth = track.scrollWidth / 2;
-      function animate() {
-        pos += speed;
-        if (pos >= halfWidth) pos = 0;
-        track.style.transform = 'translateX(-' + pos + 'px)';
-        requestAnimationFrame(animate);
-      }
-      animate();
-    })();
-  </script>
+    <nav class="sidebar-nav">
+      <button class="nav-item nav-expert active" data-page="expert" onclick="navigate('expert')">
+        <span class="nav-icon">▶</span>
+        <span class="nav-label">EXPERT</span>
+      </button>
+      <button class="nav-item nav-social" data-page="social" onclick="navigate('social')">
+        <span class="nav-icon">◈</span>
+        <span class="nav-label">Social Media</span>
+        <span class="nav-badge" id="nav-badge" style="display:none">0</span>
+      </button>
+      <button class="nav-item nav-editor" data-page="editor" onclick="navigate('editor')">
+        <span class="nav-icon">🎬</span>
+        <span class="nav-label">Editor</span>
+      </button>
+    </nav>
 
-  <!-- ============================================================
-       DOBRA 2 — DOR
-       ============================================================ -->
-  <section class="dor" id="dor">
-    <div class="wrap">
-
-      <h2 class="dor__headline reveal">
-        Você não está perdendo <span class="dor__headline--gold">dinheiro</span> por falta de esforço.
-        <span class="dor__headline--sub">É porque ninguém te mostrou para onde ele está indo.</span>
-      </h2>
-
-      <div class="dor__cards-wrap">
-
-        <div class="dor__card dor__card--problema reveal">
-          <div class="dor__card-badge">Situação atual</div>
-          <div class="dor__card-items">
-            <div class="dor__card-item dor__card-item--green">
-              <i class="ico">✓</i><span>Salão <strong>cheio</strong></span>
-            </div>
-            <div class="dor__card-item dor__card-item--green">
-              <i class="ico">✓</i><span>Delivery <strong>rodando</strong></span>
-            </div>
-            <div class="dor__card-item dor__card-item--green">
-              <i class="ico">✓</i><span>Muito <strong>trabalho</strong></span>
-            </div>
-          </div>
-          <p class="dor__card-text">Mas no final do mês o caixa <strong>não reflete</strong> o movimento.</p>
-          <div class="dor__card-items">
-            <div class="dor__card-item dor__card-item--red">
-              <i class="ico ico--red">✕</i><span>O sistema gera relatório que ninguém entende</span>
-            </div>
-            <div class="dor__card-item dor__card-item--red">
-              <i class="ico ico--red">✕</i><span>A planilha é bagunçada</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="dor__card dor__card--cinza reveal">
-          <div class="dor__card-badge">Enquanto isso</div>
-          <div class="dor__card-items">
-            <div class="dor__card-item dor__card-item--dark">
-              <i class="ico ico--gray">→</i><span>Quanto <strong>posso investir</strong> no próximo mês?</span>
-            </div>
-            <div class="dor__card-item dor__card-item--dark">
-              <i class="ico ico--gray">→</i><span><strong>Contratar</strong> mais um funcionário ou
-                <strong>cortar</strong>?</span>
-            </div>
-            <div class="dor__card-item dor__card-item--dark">
-              <i class="ico ico--gray">→</i><span>Posso abrir uma <strong>segunda unidade</strong>?</span>
-            </div>
-          </div>
-          <p class="dor__card-text">Você responde no achismo porque não tem outra opção.</p>
-          <div class="dor__card-items">
-            <div class="dor__card-item dor__card-item--ghost">
-              <i class="ico">✕</i><span>Conversas <strong>desnecessárias</strong></span>
-            </div>
-            <div class="dor__card-item dor__card-item--ghost">
-              <i class="ico">✕</i><span>Noites <strong>mal dormidas</strong></span>
-            </div>
-            <div class="dor__card-item dor__card-item--ghost">
-              <i class="ico">✕</i><span>Finais de semana <strong>sem descanso</strong></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="dor__card dor__card--virada reveal">
-          <div class="dor__card-badge dor__card-badge--green">A Virada</div>
-          <p class="dor__card-text--virada">A <strong>Voxel</strong> faz o que planilha e sistema nunca fizeram e te
-            mostra exatamente para onde vai cada real.</p>
-          <div class="dor__card-items">
-            <div class="dor__card-item dor__card-item--gold">
-              <i class="ico">✓</i><span>Você cresce <strong>com segurança</strong></span>
-            </div>
-            <div class="dor__card-item dor__card-item--gold">
-              <i class="ico">✓</i><span>Toma decisões com <strong>dados reais</strong></span>
-            </div>
-            <div class="dor__card-item dor__card-item--gold">
-              <i class="ico">✓</i><span>Para de <strong>decidir no escuro</strong></span>
-            </div>
-          </div>
-        </div>
-
+    <!-- Métricas no rodapé da sidebar -->
+    <div class="sidebar-metrics">
+      <div class="metric-row">
+        <span class="metric-label">🎬 Gravados</span>
+        <span class="metric-val" id="metric-gravados">0</span>
       </div>
-
-      <div class="dor__cta-wrap reveal">
-        <a href="#form" class="cta-gold">Quero ter clareza dos meus números</a>
+      <div class="metric-row">
+        <span class="metric-label">💬 Comentários</span>
+        <span class="metric-val" id="metric-comentarios">0</span>
       </div>
-
+      <div class="metric-row">
+        <span class="metric-label">❌ Reprovados</span>
+        <span class="metric-val" id="metric-reprovados">0</span>
+      </div>
     </div>
-  </section>
 
-  <!-- ============================================================
-       DOBRA 3 — PROVA SOCIAL
-       ============================================================ -->
-  <section class="prova" id="prova">
-    <div class="wrap">
+    <div class="sidebar-footer" id="sidebar-week-info"></div>
+  </aside>
 
-      <div class="sec-hd reveal">
-        <p class="sec-eyebrow">Ouça quem já passou por isso</p>
-        <h2 class="sec-title">O que acontece quando o Dono de Restaurante <em>domina seu financeiro</em></h2>
-        <p class="prova__sub">Mais de 300 tomaram essa decisão. Veja o que eles conquistaram.</p>
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- ===== PAGE EXPERT ===== -->
+    <section class="page active" id="page-expert">
+      <header class="page-header">
+        <div class="page-header-left">
+          <h1 class="page-title">Calendário de Conteúdo</h1>
+          <p class="page-subtitle" id="expert-week-label">—</p>
+        </div>
+        <div class="page-header-right">
+          <div class="tinder-tooltip-wrap">
+            <button class="btn-tinder" onclick="openTinder()">💘 Tinder de Conteúdos</button>
+            <div class="tinder-tooltip">Revise e aprove rápido...</div>
+          </div>
+          <div class="week-nav">
+            <button class="week-nav-btn" onclick="prevWeek()">←</button>
+            <button class="week-today-btn" onclick="goToday()">Hoje</button>
+            <button class="week-nav-btn" onclick="nextWeek()">→</button>
+          </div>
+        </div>
+      </header>
+      <div class="calendar-wrapper">
+        <div class="calendar-grid" id="calendar-grid"></div>
       </div>
+    </section>
 
-      <div class="prova__stats reveal">
-        <div class="prova__stat2">
-          <span class="prova__stat-num">+300</span>
-          <span class="prova__stat-label">Restaurantes atendidos em 26 estados do Brasil e Portugal</span>
+    <!-- ===== PAGE SOCIAL ===== -->
+    <section class="page" id="page-social">
+      <header class="page-header">
+        <div class="page-header-left">
+          <h1 class="page-title">Painel Social Media</h1>
+          <p class="page-subtitle">Gerencie posts, categorias e feedbacks</p>
         </div>
-        <div class="prova__stat-row">
-          <div class="prova__stat" style="grid-column: 1 / -1;">
-            <span class="prova__stat-num">30 dias</span>
-            <span class="prova__stat-label">Para ter clareza total de seus números</span>
-          </div>
+        <div class="page-header-right">
+          <button class="btn-primary" onclick="openModal('post')">+ Novo Post</button>
+          <button class="btn-secondary" onclick="openModal('category')">+ Categoria</button>
         </div>
+      </header>
+      <div class="tabs-bar">
+        <button class="tab-btn active" onclick="switchTab('feedback','social')">Feedbacks</button>
+        <button class="tab-btn" onclick="switchTab('posts','social')">Todos os Posts</button>
+        <button class="tab-btn" onclick="switchTab('categories','social')">Categorias</button>
+        <button class="tab-btn tab-tinder" onclick="switchTab('tinder','social')">💘 Tinder dos Conteúdos</button>
       </div>
-
-      <p class="prova__section-label reveal">Depoimentos em vídeo</p>
-
-      <div class="prova__videos">
-
-        <div class="pvideo reveal">
-          <div class="pvideo__inner">
-            <div class="pvideo__video-col">
-              <vturb-smartplayer id="vid-69b1cc21faf9397e232e2bee"
-                style="display: block; width: 100%;"></vturb-smartplayer>
-              <script type="text/javascript">
-                var s = document.createElement("script");
-                s.src = "https://scripts.converteai.net/a185c488-7371-4c95-b8a1-96cebf9b0f98/players/69b1cc21faf9397e232e2bee/v4/player.js",
-                  s.async = !0, document.head.appendChild(s);
-              </script>
-            </div>
-            <div class="pvideo__body">
-              <div class="pvideo__auth">
-                <div class="pvideo__av"><img src="Antonio.png" alt="António" width="48" height="48" loading="lazy"
-                    decoding="async"></div>
-                <div>
-                  <strong>António</strong>
-                  <span>Galo Grijo — Porto, Portugal</span>
-                </div>
-              </div>
-              <blockquote class="pvideo__quote">
-                "Quem cuidava do financeiro era minha esposa. Isso gerava muito conflito. Hoje ganhei tranquilidade,
-                convívio familiar melhor e tempo para tocar meu negócio."
-              </blockquote>
-            </div>
+      <div class="tab-content active" id="tab-feedback">
+        <div class="feedback-cols">
+          <div class="feedback-col">
+            <div class="feedback-col-header col-reprovado">Reprovados <span class="col-count"
+                id="count-reprovado">0</span></div>
+            <div class="feedback-list" id="list-reprovado"></div>
           </div>
-        </div>
-
-        <div class="pvideo reveal">
-          <div class="pvideo__inner">
-            <div class="pvideo__video-col">
-              <vturb-smartplayer id="vid-69b1d3b0ee2947d3ff28669d"
-                style="display: block; width: 100%;"></vturb-smartplayer>
-              <script type="text/javascript">
-                var s = document.createElement("script");
-                s.src = "https://scripts.converteai.net/a185c488-7371-4c95-b8a1-96cebf9b0f98/players/69b1d3b0ee2947d3ff28669d/v4/player.js",
-                  s.async = !0, document.head.appendChild(s);
-              </script>
-            </div>
-            <div class="pvideo__body">
-              <div class="pvideo__auth">
-                <div class="pvideo__av"><img src="Sinval.png" alt="Sinval" width="48" height="48" loading="lazy"
-                    decoding="async"></div>
-                <div>
-                  <strong>Sinval Júnior</strong>
-                  <span>Dom Manju — Brasília, DF</span>
-                </div>
-              </div>
-              <blockquote class="pvideo__quote">
-                "A gente tinha uma dor por não ter clareza. Saímos de uma reunião com a Voxel e encontramos um furo no
-                estoque que não víamos — e saímos com ações para resolver no mesmo dia."
-              </blockquote>
-            </div>
+          <div class="feedback-col">
+            <div class="feedback-col-header col-troca">Troca <span class="col-count" id="count-troca">0</span></div>
+            <div class="feedback-list" id="list-troca"></div>
           </div>
-        </div>
-
-        <div class="pvideo reveal">
-          <div class="pvideo__inner">
-            <div class="pvideo__video-col">
-              <vturb-smartplayer id="vid-69b1cbe3a10d9a398ab7a83c"
-                style="display: block; width: 100%;"></vturb-smartplayer>
-              <script type="text/javascript">
-                var s = document.createElement("script");
-                s.src = "https://scripts.converteai.net/a185c488-7371-4c95-b8a1-96cebf9b0f98/players/69b1cbe3a10d9a398ab7a83c/v4/player.js",
-                  s.async = !0, document.head.appendChild(s);
-              </script>
-            </div>
-            <div class="pvideo__body">
-              <div class="pvideo__auth">
-                <div class="pvideo__av"><img src="Marina.png" alt="Marina" width="48" height="48" loading="lazy"
-                    decoding="async"></div>
-                <div>
-                  <strong>Marina Major</strong>
-                  <span>Restaurante Major</span>
-                </div>
-              </div>
-              <blockquote class="pvideo__quote">
-                "Quando a Voxel apareceu na minha vida, eles abriram um novo mundo que eu sequer sabia que existia."
-              </blockquote>
-            </div>
+          <div class="feedback-col">
+            <div class="feedback-col-header col-comentario">Comentários <span class="col-count"
+                id="count-comentario">0</span></div>
+            <div class="feedback-list" id="list-comentario"></div>
           </div>
-        </div>
-
-      </div>
-
-      <p class="prova__section-label reveal">O que mais clientes dizem</p>
-
-      <div class="prova__cards">
-
-        <div class="pcard reveal">
-          <div class="pcard__top">
-            <div class="pcard__auth">
-              <div class="pcard__av"><img src="Jean.png" alt="Jean" width="40" height="40" loading="lazy"
-                  decoding="async"></div>
-              <div>
-                <strong>Jean</strong>
-                <span>Takematos — 4 unidades, Brasília</span>
-              </div>
+          <div class="feedback-col">
+            <div class="feedback-col-header col-gravado">Gravados 🎬 <span class="col-count" id="count-gravado">0</span>
             </div>
-            <div class="pcard__stars">★★★★★</div>
+            <div class="feedback-list" id="list-gravado"></div>
           </div>
-          <p class="pcard__txt">"A Voxel me deu liberdade para crescer e liderar não ficar montando planilha."</p>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="pcard__top">
-            <div class="pcard__auth">
-              <div class="pcard__av"><img src="leticia.png" alt="Letícia" width="40" height="40" loading="lazy"
-                  decoding="async"></div>
-              <div>
-                <strong>Letícia</strong>
-                <span>Sabor Nordestino — Maceió, AL</span>
-              </div>
-            </div>
-            <div class="pcard__stars">★★★★★</div>
+          <div class="feedback-col">
+            <div class="feedback-col-header col-na">Sem interação <span class="col-count" id="count-na">0</span></div>
+            <div class="feedback-list" id="list-na"></div>
           </div>
-          <p class="pcard__txt">"Hoje sei meu custo fixo, o que cortar e onde focar. Foi um divisor de águas."</p>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="pcard__top">
-            <div class="pcard__auth">
-              <div class="pcard__av"><img src="Felipe.png" alt="Felipe" width="40" height="40" loading="lazy"
-                  decoding="async"></div>
-              <div>
-                <strong>Felipe</strong>
-                <span>Meatz Burger — 18 operações, 5 estados</span>
-              </div>
-            </div>
-            <div class="pcard__stars">★★★★★</div>
-          </div>
-          <p class="pcard__txt">"Parceiro no dia a dia e na estratégia nos dá certeza dos indicadores que importam."</p>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="pcard__top">
-            <div class="pcard__auth">
-              <div class="pcard__av"><img src="Rodrigo.png" alt="Rodrigo" width="40" height="40" loading="lazy"
-                  decoding="async"></div>
-              <div>
-                <strong>Rodrigo</strong>
-                <span>Mesanina — Brasília, DF</span>
-              </div>
-            </div>
-            <div class="pcard__stars">★★★★★</div>
-          </div>
-          <p class="pcard__txt">"Otimizamos todos os custos. Rentabilidade do negócio melhorou de forma visível."</p>
-        </div>
-
-      </div>
-
-      <div class="caso-real reveal">
-        <div class="caso-real__video-col">
-          <vturb-smartplayer id="vid-69b2380a46625199476510ea" style="display: block; width: 100%;"></vturb-smartplayer>
-          <script type="text/javascript">
-            var s = document.createElement("script");
-            s.src = "https://scripts.converteai.net/a185c488-7371-4c95-b8a1-96cebf9b0f98/players/69b2380a46625199476510ea/v4/player.js",
-              s.async = !0, document.head.appendChild(s);
-          </script>
-        </div>
-        <div class="caso-real__body">
-          <div class="caso-real__badge">Caso real com número</div>
-          <div class="caso-real__row">
-            <div class="caso-real__mini caso-real__mini--gold">
-              <span>+R$40mil</span>
-              <small>De lucro mensal em 6 meses</small>
-            </div>
-            <div class="caso-real__mini caso-real__mini--red">
-              <span>-14,5%</span>
-              <small>Redução do CMV</small>
-            </div>
-          </div>
-          <div class="caso-real__auth">
-            <div class="caso-real__av">
-              <img src="Verona.png" alt="Verona Restaurante" width="52" height="52" loading="lazy" decoding="async">
-            </div>
-            <div>
-              <strong>Verona Restaurante</strong>
-              <span>Brasília, DF</span>
-            </div>
-          </div>
-          <blockquote class="caso-real__quote">
-            "A gente conseguiu bater o melhor CMV recorde do Verona no pior mês tanto de movimento quanto na
-            estratégia de compra. Hoje temos um estudo perfeito do nosso estabelecimento."
-          </blockquote>
         </div>
       </div>
-
-      <div class="sec-cta reveal">
-        <a href="#form" class="cta-gold cta-gold--big">Quero ter clareza nos meus números</a>
+      <div class="tab-content" id="tab-posts">
+        <div class="posts-list" id="posts-list"></div>
       </div>
+      <div class="tab-content" id="tab-tinder">
+        <div id="tinder-social-section"></div>
+      </div>
+      <div class="tab-content" id="tab-categories">
+        <div id="categories-section"></div>
+      </div>
+    </section>
 
+    <!-- ===== PAGE EDITOR ===== -->
+    <section class="page" id="page-editor">
+      <header class="page-header">
+        <div class="page-header-left">
+          <h1 class="page-title">Kanban do Editor</h1>
+          <p class="page-subtitle">Acompanhe o progresso dos vídeos em edição</p>
+        </div>
+        <div class="page-header-right">
+          <button class="btn-primary" onclick="openModal('video')">+ Novo Vídeo</button>
+        </div>
+      </header>
+      <div class="editor-board" id="editor-board"></div>
+    </section>
+
+  </main>
+
+  <!-- MODAL PRINCIPAL -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title">—</h2>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
     </div>
-  </section>
+  </div>
 
-  <!-- ============================================================
-       DOBRA 4 — PROPOSTA DE VALOR
-       ============================================================ -->
-  <section class="valor" id="valor">
-    <div class="wrap">
-
-      <div class="sec-hd reveal">
-        <p class="sec-eyebrow">O que a Voxel entrega</p>
-        <h2 class="sec-title">Assumimos todo seu financeiro.</h2>
-        <p class="valor__sub">Você foca no crescimento</p>
+  <!-- MODAL COMENTÁRIO -->
+  <div class="modal-overlay" id="comment-overlay" onclick="closeComment()">
+    <div class="modal modal-sm" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h2 class="modal-title">💬 Comentário</h2>
+        <button class="modal-close" onclick="closeComment()">✕</button>
       </div>
-
-      <div class="valor__lista reveal">
-        <div class="vlista__item">
-          <div class="vlista__ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="5" width="20" height="14" rx="2" />
-              <line x1="2" y1="10" x2="22" y2="10" />
-            </svg>
-          </div>
-          <div class="vlista__body">
-            <strong>Contas a pagar</strong>
-            <p>Recebimento, agendamento e execução de todos os pagamentos do seu restaurante.</p>
-          </div>
-        </div>
-        <div class="vlista__item">
-          <div class="vlista__ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <line x1="3" y1="9" x2="21" y2="9" />
-              <line x1="3" y1="15" x2="21" y2="15" />
-              <line x1="9" y1="9" x2="9" y2="21" />
-            </svg>
-          </div>
-          <div class="vlista__body">
-            <strong>Conciliação bancária</strong>
-            <p>Cada movimentação registrada e conferida todo dia para que seus números reflitam a realidade.</p>
-          </div>
-        </div>
-        <div class="vlista__item">
-          <div class="vlista__ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-          </div>
-          <div class="vlista__body">
-            <strong>Auditoria de recebíveis</strong>
-            <p>iFood, UberEats, Cielo, Stone conferimos tudo para garantir que cada venda foi paga.</p>
-          </div>
-        </div>
-        <div class="vlista__item vlista__item--destaque">
-          <div class="vlista__ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="3" width="20" height="14" rx="2" />
-              <line x1="8" y1="21" x2="16" y2="21" />
-              <line x1="12" y1="17" x2="12" y2="21" />
-            </svg>
-          </div>
-          <div class="vlista__body">
-            <strong>Relatórios</strong>
-            <p>Fechamento completo entregue todo inicio de mês</p>
+      <div class="modal-body">
+        <textarea id="comment-text" class="form-textarea" placeholder="Escreva seu comentário..." rows="4"
+          maxlength="400"></textarea>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+          <span id="comment-chars" style="font-size:11px;color:var(--text-3)">0 / 400</span>
+          <div style="display:flex;gap:8px">
+            <button class="btn-secondary" onclick="closeComment()">Cancelar</button>
+            <button class="btn-primary" onclick="submitComment()">Enviar</button>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <p class="valor__section-label reveal">Você recebe para decidir</p>
-
-      <div class="valor__grid stagger">
-        <div class="vcard reveal">
-          <div class="vcard__sigla">DRE</div>
-          <div class="vcard__label">Demonstrativo de Resultado</div>
-          <div class="vcard__desc">Lucro ou prejuízo real do mês</div>
-        </div>
-        <div class="vcard reveal">
-          <div class="vcard__sigla">DFC</div>
-          <div class="vcard__label">Fluxo de Caixa</div>
-          <div class="vcard__desc">Para onde vai cada real</div>
-        </div>
-        <div class="vcard reveal">
-          <div class="vcard__sigla">CMV</div>
-          <div class="vcard__label">Custo de Mercadoria</div>
-          <div class="vcard__desc">Se seu cardápio está saudável</div>
-        </div>
-        <div class="vcard reveal">
-          <div class="vcard__sigla">CO</div>
-          <div class="vcard__label">Custo Operacional</div>
-          <div class="vcard__desc">Onde cortar sem prejudicar</div>
-        </div>
+  <!-- MODAL TROCAR (popup para expert escolher) -->
+  <div class="modal-overlay" id="swap-overlay" onclick="closeSwap()">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h2 class="modal-title">⇄ Escolher substituto</h2>
+        <button class="modal-close" onclick="closeSwap()">✕</button>
       </div>
+      <div class="modal-body" id="swap-body"></div>
+    </div>
+  </div>
 
-      <div class="valor__reuniao reveal">
-        <div class="valor__reuniao-header">
-          <div class="valor__reuniao-ico">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-            </svg>
-          </div>
-          <div>
-            <strong>Você não lê relatório sozinho. Nunca.</strong>
-            <span>Reunião mensal com seu consultor</span>
-          </div>
-        </div>
-        <p class="valor__reuniao-txt">
-          <strong>Seu consultor senta com você</strong>, explica os números e aponta exatamente o que fazer no próximo
-          mês.
-        </p>
-        <ul class="valor__reuniao-checks">
-          <li><span class="check-gold">✓</span> O que melhorou e o que precisa de atenção</li>
-          <li><span class="check-gold">✓</span> Decisões concretas para o próximo mês</li>
-          <li><span class="check-gold">✓</span> Comparativo com a média do mercado</li>
-        </ul>
-      </div>
-
-      <div class="valor__consultor reveal">
-        <div class="valor__consultor-ico">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-          </svg>
-        </div>
+  <!-- MODAL TINDER EXPERT -->
+  <div class="modal-overlay tinder-overlay" id="tinder-overlay" onclick="closeTinder()">
+    <div class="modal modal-tinder" onclick="event.stopPropagation()">
+      <div class="modal-header tinder-header">
         <div>
-          <strong>Consultor disponível o mês todo</strong>
-          <p>Surgiu uma dúvida fora da reunião? Seu consultor está acessível. Você nunca decide sozinho.</p>
+          <h2 class="modal-title">💘 Tinder de Conteúdos</h2>
+          <p style="font-size:11px;color:var(--cyan-mid);margin-top:2px" id="tinder-counter">—</p>
         </div>
+        <button class="modal-close" onclick="closeTinder()">✕</button>
       </div>
-
-      <div class="sec-cta reveal">
-        <p class="valor__cta-pre">Tudo isso começa com 30 minutos de diagnóstico gratuito.</p>
-        <a href="#form" class="cta-gold cta-gold--big">Quero ter Clareza nos meus números</a>
-        <div class="valor__cta-selos">
-          <span>✓ Não precisa entender de números</span>
-          <span>🔒 Diagnóstico sem compromisso</span>
-        </div>
-      </div>
-
+      <div class="modal-body tinder-body" id="tinder-body"></div>
+      <div class="tinder-actions" id="tinder-actions"></div>
     </div>
-  </section>
+  </div>
 
-  <!-- ============================================================
-       DOBRA 5 — FECHAMENTO
-       ============================================================ -->
-  <section class="fechamento" id="fechamento">
-    <div class="fechamento__glow" aria-hidden="true"></div>
-    <div class="wrap">
-      <div class="fechamento__inner reveal">
-
-        <p class="fechamento__eyebrow">O próximo passo é seu</p>
-
-        <h2 class="fechamento__hl">
-          Você pode continuar no achismo. Ou pode ter <em>lucro previsível em 30 dias.</em>
-        </h2>
-
-        <p class="fechamento__sub">
-          O diagnóstico é gratuito e leva 30 minutos.
-        </p>
-
-        <div class="fechamento__vagas">
-          <div class="fechamento__vagas-header">
-            <span class="fechamento__vagas-label">Vagas este mês</span>
-            <span class="fechamento__vagas-badge">Limitado</span>
-          </div>
-          <div class="fechamento__vagas-num">18</div>
-          <p class="fechamento__vagas-desc">Novos restaurantes por mês limite real de capacidade dos nossos consultores.
-          </p>
-          <div class="fechamento__vagas-bar-wrap">
-            <div class="fechamento__vagas-bar-labels">
-              <span>11 vagas preenchidas</span>
-              <span>7 restantes</span>
-            </div>
-            <div class="fechamento__vagas-bar">
-              <div class="fechamento__vagas-fill"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="fechamento__btns">
-          <a href="#form" class="cta-gold cta-gold--big">
-            Quero ter Clareza nos meus números
-          </a>
-          <a href="https://wa.me/5596991712835" class="cta-outline" target="_blank" rel="noopener">
-            Falar com um especialista
-          </a>
-        </div>
-
-        <div class="fechamento__selos">
-          <span>✓ Sem planilhas</span>
-          <span>✓ Diagnóstico Gratuíto</span>
-          <span>✓ 30 minutos</span>
-          <span>✓ +300 restaurantes</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       DOBRA 6 — FORMULÁRIO
-       ============================================================ -->
-  <section class="formulario" id="form">
-    <div class="wrap">
-      <div class="form__inner reveal">
-
-        <div class="form__copy">
-          <p class="fechamento__eyebrow">Diagnóstico Gratuito</p>
-          <h2 class="form__hl">O que acontece quando você clica</h2>
-
-          <ul class="form__steps">
-            <li>
-              <span class="form__step-icon">✓</span>
-              <p>Você agenda 30 minutos com um especialista em restaurantes</p>
-            </li>
-            <li>
-              <span class="form__step-icon">✓</span>
-              <p>Recebe um <strong>diagnóstico real do seu financeiro</strong> mesmo que não contrate</p>
-            </li>
-            <li>
-              <span class="form__step-icon">✓</span>
-              <p><strong>Sem pressão. Sem compromisso. Sem custo.</strong></p>
-            </li>
-          </ul>
-
-          <p class="form__destaque"><span class="form__destaque-grip">
-              Em 30 minutos você sabe exatamente o que está impedindo seu restaurante de crescer.</span>
-          </p>
-
-          <div class="form__selos">
-            <span>✓ Não precisa entender de números</span>
-            <span>🔒 Diagnóstico gratuito sem compromisso</span>
-            <span>⚡ Nº1 em restaurantes no Brasil</span>
-          </div>
-        </div>
-
-        <div class="form__side">
-          <form class="form__box" action="#" method="POST">
-            <p class="form__side-title">Preencha abaixo. Um especialista irá entrar em contato em menos de 10 minutos.
-            </p>
-            <div class="form__field">
-              <label for="nome">Seu nome</label>
-              <input type="text" id="nome" name="nome" placeholder="João Silva" required>
-            </div>
-            <div class="form__field">
-              <label for="whatsapp">WhatsApp</label>
-              <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" required>
-            </div>
-            <div class="form__field">
-              <label for="restaurante">Nome do restaurante</label>
-              <input type="text" id="restaurante" name="restaurante" placeholder="Nome do seu restaurante" required>
-            </div>
-            <div class="form__field">
-              <label for="faturamento">Faturamento mensal aproximado</label>
-              <select id="faturamento" name="faturamento" required>
-                <option value="" disabled selected>Selecione</option>
-                <option>Até R$ 30.000</option>
-                <option>R$ 30.000 – R$ 100.000</option>
-                <option>R$ 100.000 – R$ 300.000</option>
-                <option>Acima de R$ 300.000</option>
-              </select>
-            </div>
-            <button type="submit" class="form__btn">
-              Quero ter clareza nos meus números</button>
-            <p class="form__disclaimer">Seus dados estão seguros. Não enviamos spam.</p>
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       RODAPÉ
-       ============================================================ -->
-  <footer class="rodape">
-    <div class="wrap">
-      <div class="rodape__inner">
-        <div class="rodape__logo-text">VOXEL</div>
-        <p class="rodape__tagline">Gestão Financeira para Bares e Restaurantes</p>
-        <p class="rodape__copy">© 2026 Voxel. Todos os direitos reservados.</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
-  </script>
-
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="main.js"></script>
 </body>
 
 </html>
